@@ -1,2 +1,2 @@
 # diagnostic-laboratory
-examination and laboratory service
+exam and laboratory service

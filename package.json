@@ -1,7 +1,7 @@
 {
   "name": "diagnostic-laboratory",
   "version": "1.0.0",
-  "description": "Provides a examination and laboratory service",
+  "description": "Provides exams and laboratories services",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaximilianoOliveiraFurtado/diagnostic-laboratory.git"
