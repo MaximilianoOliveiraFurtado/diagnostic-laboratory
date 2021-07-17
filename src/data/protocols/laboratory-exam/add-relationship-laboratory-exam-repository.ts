@@ -1,4 +1,5 @@
 import { LaboratoryExamModel } from '@/domain/models/laboratory-exam'
-export interface AddLaboratoryExam {
+
+export interface AddLaboratoryExamRepository {
   add: (laboratoryExam: LaboratoryExamModel) => Promise<void>
 }

@@ -1,4 +1,5 @@
 import { ExamModel } from '@/domain/models/exam'
-export interface UpdateExam {
+
+export interface UpdateExamRepository {
   update: (exam: ExamModel) => Promise<void>
 }

@@ -1,5 +1,5 @@
 import { ExamModel } from '@/domain/models/exam'
 
-export interface LoadExam {
+export interface LoadExamRepository {
   load: () => Promise<ExamModel>
 }

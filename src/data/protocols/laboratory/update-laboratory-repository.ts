@@ -1,4 +1,5 @@
 import { LaboratoryModel } from '@/domain/models/laboratory'
-export interface UpdateLaboratory {
+
+export interface UpdateLaboratoryRepository {
   update: (laboratory: LaboratoryModel) => Promise<void>
 }

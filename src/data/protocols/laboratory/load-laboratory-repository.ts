@@ -1,5 +1,5 @@
 import { LaboratoryModel } from '@/domain/models/laboratory'
 
-export interface LoadLaboratory {
+export interface LoadLaboratoryRepositori {
   load: () => Promise<LaboratoryModel>
 }
