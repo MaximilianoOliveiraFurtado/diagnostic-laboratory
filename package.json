@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/MaximilianoOliveiraFurtado/diagnostic-laboratory#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand"
   },
   "dependencies": {
     "audit": "0.0.6",
