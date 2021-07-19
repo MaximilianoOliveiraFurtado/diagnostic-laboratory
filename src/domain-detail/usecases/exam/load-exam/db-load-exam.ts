@@ -5,7 +5,7 @@ export class DbLoadExam implements LoadExam {
     private readonly loadExamRepository: LoadExamRepository
   ) {}
 
-  async load (): Promise<ExamModel> {
+  async load (): Promise<ExamModel[]> {
     return await this.loadExamRepository.load()
   }
 }
