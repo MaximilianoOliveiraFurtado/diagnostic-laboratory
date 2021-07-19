@@ -13,3 +13,8 @@ export const mockExamModel = (): ExamModel => ({
   type: faker.random.word(),
   status: faker.random.word()
 })
+
+export const mockExamModels = (): ExamModel[] => [
+  mockExamModel(),
+  mockExamModel()
+]

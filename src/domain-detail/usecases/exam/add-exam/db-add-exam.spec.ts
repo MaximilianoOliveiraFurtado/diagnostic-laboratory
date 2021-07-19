@@ -23,7 +23,7 @@ describe('DbAddExam Usecase', () => {
     await sut.add(addExamParams)
     expect(addExamRepositorySpy.addExamParams).toEqual({
       name: addExamParams.name,
-      email: addExamParams.email
+      type: addExamParams.type
     })
   })
 

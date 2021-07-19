@@ -1,5 +1,5 @@
 import { ExamModel } from '@/domain-policy/models/exam'
 
 export interface LoadExamRepository {
-  load: () => Promise<ExamModel>
+  load: () => Promise<ExamModel[]>
 }
