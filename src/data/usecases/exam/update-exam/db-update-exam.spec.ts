@@ -29,7 +29,7 @@ describe('DbUpdateExam Usecase', () => {
     })
   })
 
-  test('Should throw if AddExamRepository throws', async () => {
+  test('Should throw if UpdateExamRepository throws', async () => {
     const { sut, updateExamRepositorySpy } = makeSut()
     jest.spyOn(updateExamRepositorySpy, 'update').mockImplementationOnce(throwError)
     const promise = sut.update(mockExamModel())

@@ -1,9 +1,11 @@
 import { AddExamRepository } from '@/data/protocols/exam/add-exam-repository'
 import { AddExamParams } from '@/domain/usecases/exam/add-exam'
 import { ExamModel } from '@/domain/models/exam'
-import { mockExamModel, mockExamModels } from '@/domain/test'
+import { mockExamModel, mockExamModels, mockLogicalDeleteExamParam } from '@/domain/test'
 import { LoadExamRepository } from '@/data/protocols/exam/load-exam-repository'
-import { UpdateExamRepository } from '../protocols/exam/update-exam-repository'
+import { UpdateExamRepository } from '@/data/protocols/exam/update-exam-repository'
+import { LogicalDeleteExamRepository } from '@/data/protocols/exam/logical-delete-exam-repository'
+import { LogicalDeleteExamParams } from '@/domain/usecases/exam/logical-delete-exam'
 
 export class AddExamRepositorySpy implements AddExamRepository {
   examModel = mockExamModel()
@@ -29,5 +31,14 @@ export class UpdateExamRepositorySpy implements UpdateExamRepository {
   async update (data: ExamModel): Promise<ExamModel> {
     this.examModel = data
     return Promise.resolve(this.examModel)
+  }
+}
+
+export class LogicalDeleteExamRepositorySpy implements LogicalDeleteExamRepository {
+  examId = mockLogicalDeleteExamParam()
+  logicalDeleteExamParams: LogicalDeleteExamParams
+
+  async logicalDelete (examId: LogicalDeleteExamParams): Promise<void> {
+    this.examId = examId
   }
 }

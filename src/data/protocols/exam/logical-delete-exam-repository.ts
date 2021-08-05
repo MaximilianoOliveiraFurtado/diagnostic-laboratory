@@ -1,5 +1,5 @@
 import { LogicalDeleteExamParams } from '@/domain/usecases/exam/logical-delete-exam'
 
-export interface LogialDeleteExamRepository {
+export interface LogicalDeleteExamRepository {
   logicalDelete: (examId: LogicalDeleteExamParams) => Promise<void>
 }
