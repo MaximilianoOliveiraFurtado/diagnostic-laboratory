@@ -13,7 +13,8 @@
   },
   "homepage": "https://github.com/MaximilianoOliveiraFurtado/diagnostic-laboratory#readme",
   "scripts": {
-    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "dev": "nodemon --watch 'src/' --exec npx ts-node src/main/server.ts -e ts"
   },
   "dependencies": {
     "audit": "0.0.6",
