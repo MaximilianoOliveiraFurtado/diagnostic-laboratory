@@ -1,6 +1,7 @@
 import { AddExamParams, AddExam } from '@/domain/usecases/exam/add-exam'
 import { LoadExam } from '@/domain/usecases/exam/load-exam'
 import { UpdateExam } from '@/domain/usecases/exam/update-exam'
+import { LogicalDeleteExam } from '@/domain/usecases/exam/logical-delete-exam'
 import { ExamModel } from '@/domain/models/exam'
 import { mockExamModel, mockExamModels } from '@/domain/test'
 
@@ -26,9 +27,18 @@ export const mockLoadExam = (): LoadExam => {
 
 export const mockUpdateExam = (): UpdateExam => {
   class UpdateExamStub implements UpdateExam {
-    async update (data: AddExamParams): Promise<void> {
+    async update (data: ExamModel): Promise<void> {
       return Promise.resolve()
     }
   }
   return new UpdateExamStub()
+}
+
+export const mockLogicalDeleteExam = (): LogicalDeleteExam => {
+  class LogicalDeleteExamStub implements LogicalDeleteExam {
+    async logicalDelete (data: string): Promise<void> {
+      return Promise.resolve()
+    }
+  }
+  return new LogicalDeleteExamStub()
 }
