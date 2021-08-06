@@ -1,6 +1,6 @@
 import { HttpRequest, Validation, AddExam } from './add-exam-controller-protocol'
 import { AddExamController } from './add-exam-controller'
-import { badRequest, serverError } from '@/presentation/helpers/http/http-helper'
+import { badRequest, serverError, created } from '@/presentation/helpers/http/http-helper'
 import { mockValidation, mockAddExam } from '@/presentation/test'
 import { throwError } from '@/domain/test'
 
@@ -59,9 +59,11 @@ describe('AddExam Controller', () => {
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
-  // test('Should return 201 on success', async () => {
-  //   const { sut } = makeSut()
-  //   const httpResponse = await sut.handle(mockRequest())
-  //   expect(httpResponse).toEqual(created())
-  // })
+  test('Should return 201 on success', async () => {
+    const { sut, addExamStub } = makeSut()
+    const addSpy = jest.spyOn(addExamStub, 'add')
+    const httpResponse = await sut.handle(mockRequest())
+    expect(httpResponse.statusCode).toEqual(created(addSpy).statusCode)
+  })
 })
+

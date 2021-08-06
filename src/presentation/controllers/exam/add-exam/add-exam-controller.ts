@@ -1,5 +1,5 @@
 import { Controller, HttpRequest, HttpResponse, Validation, AddExam } from './add-exam-controller-protocol'
-import { badRequest, serverError, noContent } from '@/presentation/helpers/http/http-helper'
+import { badRequest, serverError, created } from '@/presentation/helpers/http/http-helper'
 
 export class AddExamController implements Controller {
   constructor (
@@ -14,11 +14,11 @@ export class AddExamController implements Controller {
         return badRequest(error)
       }
       const { name, type } = httpRequest.body
-      await this.addExam.add({
+      const exam = await this.addExam.add({
         name,
         type
       })
-      return noContent()
+      return created(exam)
     } catch (error) {
       return serverError(error)
     }
