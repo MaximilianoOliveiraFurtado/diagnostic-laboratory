@@ -35,10 +35,4 @@ describe('DbUpdateExam Usecase', () => {
     const promise = sut.update(mockExamModel())
     await expect(promise).rejects.toThrow()
   })
-
-  test('Should return an exam on success', async () => {
-    const { sut, updateExamRepositorySpy } = makeSut()
-    const exam = await sut.update(mockExamModel())
-    expect(exam).toEqual(updateExamRepositorySpy.examModel)
-  })
 })

@@ -28,9 +28,9 @@ export class LoadExamRepositorySpy implements LoadExamRepository {
 export class UpdateExamRepositorySpy implements UpdateExamRepository {
   examModel = mockExamModel()
 
-  async update (data: ExamModel): Promise<ExamModel> {
+  async update (data: ExamModel): Promise<void> {
     this.examModel = data
-    return Promise.resolve(this.examModel)
+    return Promise.resolve()
   }
 }
 
