@@ -66,4 +66,3 @@ describe('AddExam Controller', () => {
     expect(httpResponse.statusCode).toEqual(created(addSpy).statusCode)
   })
 })
-
