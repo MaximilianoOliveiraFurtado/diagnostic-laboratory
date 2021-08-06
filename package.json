@@ -14,7 +14,8 @@
   "homepage": "https://github.com/MaximilianoOliveiraFurtado/diagnostic-laboratory#readme",
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
-    "dev": "nodemon --watch 'src/' --exec npx ts-node src/main/server.ts -e ts"
+    "dev": "nodemon --watch 'src/' --exec npx ts-node src/main/server.ts -e ts",
+    "local": "docker-compose down && docker-compose up -d"
   },
   "dependencies": {
     "audit": "0.0.6",
