@@ -7,6 +7,7 @@ import { PostgresHelper } from '../infra/db/postgres/helpers/postgres-helper'
 
 PostgresHelper.connect()
   .then(async () => {
+    console.log('DB is connected!')
     const app = (await import('./config/app')).default
     app.listen(env.port, () => console.log(`Server running at http://localhost:${env.port}`))
   })
