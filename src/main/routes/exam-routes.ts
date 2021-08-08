@@ -1,6 +1,6 @@
 import { adaptRoute } from '@/main/adapters/express-route-adapter'
-import { makeAddExamController } from '@/main/factories/controllers/exam/add-exam-controller-factory'
-import { makeLoadExamController } from '@/main/factories/controllers/exam/load-exam-controller-factory'
+import { makeAddExamController } from '@/main/factories/controllers/exam/add-exam/add-exam-controller-factory'
+import { makeLoadExamController } from '@/main/factories/controllers/exam/load-exam/load-exam-controller-factory'
 import { Router } from 'express'
 
 export default (router: Router): void => {
