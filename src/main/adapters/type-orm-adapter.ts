@@ -4,6 +4,7 @@ import {
   getConnection,
   EntityTarget
 } from 'typeorm'
+import path from 'path'
 
 export const adaptTypeOrm = {
   connection: null as Connection,
@@ -18,8 +19,8 @@ export const adaptTypeOrm = {
       username: process.env.postgresUserName || 'postgres',
       password: process.env.postgresPassword || 'root',
       database: process.env.postgresDataBase || 'diag_lab',
-      entities: ['src/infra/db/postgres/entities/*.ts'],
-      migrations: ['src/infra/db/postgres/migrations/*.ts'],
+      entities: [path.join(__dirname, '../../**', '*.entity.{js,ts}')],
+      migrations: [path.join(__dirname, './infra/db/postgres/migrations/', '.{js,ts}')],
       cli: {
         migrationsDir: '../../infra/db/postgres/migrations'
       },

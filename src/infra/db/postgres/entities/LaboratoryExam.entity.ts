@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
-import { Exam } from './Exam'
-import { Laboratory } from './Laboratory'
+import { Exam } from './Exam.entity'
+import { Laboratory } from './Laboratory.entity'
 
 @Entity()
 export class User {

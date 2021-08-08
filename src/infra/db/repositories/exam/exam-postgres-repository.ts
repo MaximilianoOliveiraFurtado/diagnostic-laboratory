@@ -3,7 +3,7 @@ import { AddExamParams } from '@/domain/usecases/exam/add-exam'
 import { ExamModel } from '@/domain/models/exam'
 import { AddExamRepository } from '@/data/protocols/exam/add-exam-repository'
 import { LoadExamRepository } from '@/data/protocols/exam/load-exam-repository'
-import { Exam } from '@/infra/db/postgres/entities/Exam'
+import { Exam } from '@/infra/db/postgres/entities/Exam.entity'
 
 export class ExamPostgresRepository implements AddExamRepository, LoadExamRepository {
   async add (examData: AddExamParams): Promise<ExamModel> {
