@@ -5,6 +5,7 @@ export class DbAddExam implements AddExam {
   ) {}
 
   async add (exam: AddExamParams): Promise<ExamModel> {
+    Reflect.set(exam, 'status', 'ativo')
     return await this.addExamRepository.add(exam)
   }
 }

@@ -5,23 +5,12 @@ import { AddExamRepository } from '@/data/protocols/exam/add-exam-repository'
 import { LoadExamRepository } from '@/data/protocols/exam/load-exam-repository'
 import { Exam } from '@/infra/db/postgres/entities/Exam'
 
-export class AccountMongoRepository implements AddExamRepository, LoadExamRepository {
+export class ExamPostgresRepository implements AddExamRepository, LoadExamRepository {
   async add (examData: AddExamParams): Promise<ExamModel> {
-    return await PostgresHelper.insertOne(Exam, examData)
+    return await PostgresHelper.insertOne(Exam, examData, ['id', 'name', 'type', 'status'])
   }
 
   async load (): Promise<ExamModel[]> {
     return await PostgresHelper.load(Exam, 'exam')
   }
-
-//   async updateAccessToken (id: string, token: string): Promise<void> {
-//     const accountCollection = await MongoHelper.getCollection('accounts')
-//     await accountCollection.updateOne({
-//       _id: id
-//     }, {
-//       $set: {
-//         accessToken: token
-//       }
-//     })
-//   }
 }

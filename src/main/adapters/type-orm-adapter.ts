@@ -7,11 +7,12 @@ import {
 
 export const adaptTypeOrm = {
   connection: null as Connection,
+  CONN_NAME: `Connection_${process.env.postgresDataBase || 'diag_lab'}`,
 
   async connect (): Promise<Connection> {
     return await createConnection({
       type: 'postgres',
-      name: `Connection_${process.env.postgresDataBase || 'diag_lab'}`,
+      name: this.CONN_NAME,
       host: process.env.postgresHost || 'localhost',
       port: 5432,
       username: process.env.postgresUserName || 'postgres',
@@ -27,14 +28,15 @@ export const adaptTypeOrm = {
     })
   },
 
-  async insertOne (entity: EntityTarget<any>, values: any): Promise<any> {
-    const insert = await getConnection()
+  async insertOne (entity: EntityTarget<any>, values: any, returnColumns?: string[]): Promise<any> {
+    const insert = await getConnection(this.CONN_NAME)
       .createQueryBuilder()
       .insert()
       .into(entity)
       .values(values)
+      .returning(returnColumns)
       .execute()
-    return insert.raw
+    return insert.raw[0]
   },
 
   async load (entity: EntityTarget<any>, alias: string): Promise<any> {

@@ -1,6 +1,5 @@
 import { EntityTarget } from 'typeorm'
 import { adaptTypeOrm } from '@/main/adapters/type-orm-adapter'
-import { ExamModel } from '@/domain/models/exam'
 
 export const PostgresHelper = {
 
@@ -8,11 +7,11 @@ export const PostgresHelper = {
     await adaptTypeOrm.connect()
   },
 
-  async insertOne (entity: EntityTarget<any>, values: Object): Promise<any> {
-    return await adaptTypeOrm.insertOne(entity, values)
+  async insertOne (entity: EntityTarget<any>, values: Object, returnColumns?: string[]): Promise<any> {
+    return await adaptTypeOrm.insertOne(entity, values, returnColumns)
   },
 
-  async load (entity: EntityTarget<any>, alias: string): Promise<ExamModel[]> {
+  async load (entity: EntityTarget<any>, alias: string): Promise<any[]> {
     return await adaptTypeOrm.load(entity, alias)
   }
 }
