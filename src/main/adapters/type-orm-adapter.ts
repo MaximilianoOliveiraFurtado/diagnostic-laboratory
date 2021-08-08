@@ -40,10 +40,11 @@ export const adaptTypeOrm = {
   },
 
   async load (entity: EntityTarget<any>, alias: string): Promise<any> {
-    return await getConnection()
+    return await getConnection(this.CONN_NAME)
       .createQueryBuilder()
-      .select(alias)
+      .select()
       .from(entity, alias)
+      .limit(100)
       .execute()
   }
 

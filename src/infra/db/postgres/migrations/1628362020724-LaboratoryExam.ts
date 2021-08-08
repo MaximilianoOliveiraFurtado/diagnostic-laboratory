@@ -5,7 +5,7 @@ export class LaboratoryExam1628362020724 implements MigrationInterface {
     await queryRunner.query(`
         CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
         CREATE TABLE laboratoryExam (
-            id uuid DEFAULT uuid_generate_v4 (),
+            id uuid DEFAULT uuid_generate_v4() UNIQUE PRIMARY KEY,
             laboratory uuid NOT NULL,
             exam uuid NOT NULL,
             CONSTRAINT fk_laboratory

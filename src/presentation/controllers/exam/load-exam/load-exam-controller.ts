@@ -9,6 +9,7 @@ export class LoadExamController implements Controller {
       const exam = await this.loadExam.load()
       return exam.length ? ok(exam) : noContent()
     } catch (error) {
+      console.log(error)
       return serverError(error)
     }
   }
