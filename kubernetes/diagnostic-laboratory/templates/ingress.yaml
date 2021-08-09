@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: diagnostic-laboratory
+  namespace: {{ default "staging" .Release.Namespace }}
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+    - host: diagnostic-{{ default "staging" .Release.Namespace }}.{{ .Values.dns.name }}
+      http:
+        paths:
+          - backend:
+              serviceName: diagnostic-laboratory
+              servicePort: http
+            path: /

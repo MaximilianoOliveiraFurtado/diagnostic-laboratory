@@ -1,0 +1,7 @@
+image:
+  registry: diagnosticLaboratory25855
+  name: diagnostic-laboratory
+  tag: latest
+
+dns:
+  name: d396d5bca8e24eb7a155.eastus.aksapp.io

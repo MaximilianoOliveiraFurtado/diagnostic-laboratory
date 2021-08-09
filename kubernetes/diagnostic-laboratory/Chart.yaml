@@ -1,0 +1,4 @@
+apiVersion: v2
+name: diagnostic-laboratory
+description: Chart for the diagnostic-laboratory
+version: 0.1.0
