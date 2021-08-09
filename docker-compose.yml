@@ -5,8 +5,28 @@ services:
     image: postgres:11
     ports:
       - 5432:5432
+    healthcheck:
+      test: "pg_isready --username=postgres"
+      timeout: 10s
+      retries: 20
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=diag_lab
+  diagnostic-laboratory:
+    build: .
+    image: mcr.microsoft.com/diaglab
+    depends_on:
+      postgres:
+        condition: service_healthy
+    container_name: diagnostic_laboratory
+    environment:
+      PORT: 3000
+      postgresDataBase: diag_lab
+      postgresHost: postgres
+      postgresUserName: postgres
+      postgresPassword: root
+      postgresDataBase: diag_lab
+    ports:
+        - 3000:3000
   

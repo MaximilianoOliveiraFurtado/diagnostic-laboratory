@@ -20,7 +20,7 @@ export const adaptTypeOrm = {
       password: process.env.postgresPassword || 'root',
       database: process.env.postgresDataBase || 'diag_lab',
       entities: [path.join(__dirname, '../../**', '*.entity.{js,ts}')],
-      migrations: [path.join(__dirname, './infra/db/postgres/migrations/', '.{js,ts}')],
+      migrations: [path.join(__dirname, '../../infra/db/postgres/migrations/', '*.{js,ts}')],
       cli: {
         migrationsDir: '../../infra/db/postgres/migrations'
       },
