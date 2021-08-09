@@ -23,9 +23,8 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build and push production images
-        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v2.6.1
         with:
           context: .
-          tags: ${{secrets.ACR_NAME}}/diagnostic-laboratory:latest,${{secrets.ACR_NAME}}/diagnostic-laboratory:${{ env.TAG }}
+          tags: ${{ secrets.ACR_NAME }}/diagnostic-laboratory:latest,${{ secrets.ACR_NAME }}/diagnostic-laboratory:${GITHUB_REF#refs/tags/}
           push: true
