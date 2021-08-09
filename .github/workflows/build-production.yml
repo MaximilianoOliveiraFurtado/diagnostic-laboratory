@@ -26,5 +26,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: ${{secrets.ACR_NAME}}/diagnostic-laboratory,${{secrets.ACR_NAME}}/diagnostic-laboratory:${GITHUB_REF#refs/tags}
+          tags: ${{secrets.ACR_NAME}}/diagnostic-laboratory,${{secrets.ACR_NAME}}/diagnostic-laboratory:${GITHUB_REF#refs/tags/}
           push: true
