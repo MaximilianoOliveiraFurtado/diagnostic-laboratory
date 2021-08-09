@@ -1,9 +1,8 @@
-name: Build and push the latest build to production
+name: Build and push the latest build to staging
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ main ]
 
 jobs:
   build_push_image:
@@ -22,9 +21,9 @@ jobs:
           username: ${{ secrets.ACR_LOGIN }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Build and push production images
+      - name: Build and push staging images
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: ${{secrets.ACR_NAME}}/diagnostic-laboratory:latest,${{secrets.ACR_NAME}}/diagnostic-laboratory:${GITHUB_REF#refs/tags}
+          tags: ${{secrets.ACR_NAME}}/diagnostic-laboratory:latest
           push: true
