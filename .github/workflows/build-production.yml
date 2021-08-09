@@ -26,5 +26,5 @@ jobs:
         uses: docker/build-push-action@v2.6.1
         with:
           context: .
-          tags: ${{ secrets.ACR_NAME }}/diagnostic-laboratory:latest,${{ secrets.ACR_NAME }}/diagnostic-laboratory:1.0.11
+          tags: ${{ secrets.ACR_NAME }}/diagnostic-laboratory:latest,${{ secrets.ACR_NAME }}/diagnostic-laboratory:latest
           push: true
