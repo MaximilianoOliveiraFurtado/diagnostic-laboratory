@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: diagnostic-laboratory
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+    - host: contoso.!DNS!
+      http:
+        paths:
+          - backend:
+              serviceName: diagnostic-laboratory
+              servicePort: http
+            path: /

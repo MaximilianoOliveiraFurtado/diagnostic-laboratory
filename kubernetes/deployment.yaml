@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diagnostic-laboratory
+spec:
+  selector:
+    matchLabels:
+      app: diagnostic-laboratory
+  template:
+    metadata:
+      labels:
+        app: diagnostic-laboratory
+    spec:
+      containers:
+        - image: !IMAGE!
+          name: diagnostic-laboratory
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 3000
+              name: http
